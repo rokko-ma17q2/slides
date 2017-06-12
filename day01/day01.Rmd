@@ -1,9 +1,10 @@
 ---
-title: "Guidance"
+title: "Course Mechanics + Introduction"
 author: "Kenji Sato"
 date: '2017-06-12'
 output:
   xaringan::moon_reader:
+    mathjax: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
     css: 
       - "../asset/remark-css/style.css"
     lib_dir: libs
@@ -67,10 +68,10 @@ or on Slack chatroom (discussed later).
 | Item                 | Weight    | Note                     |
 |:---------------------|:----------|:-------------------------|
 | Attendance           | P/F       | fail if # of absense > 3 |
-| Homework             | 20%       | assigned up to 4 times   |
+| Homework             | 20%       | assigned up to 5 times   |
 | Midterm report       | 40%       | math and data            |
 | Final exam           | 40%       | Aug. 3, open book        |
-| Active participation |           | Bonus up to 10%          |
+| Active participation |           | Bonus up to 20%          |
 
 
 ---
@@ -243,13 +244,12 @@ in this course you will **not** learn
 I will show you all the code I use to draw graphs.  
 Do rerun the code yourself because you can learn how to code only by doing.
 
-To be able to run the below code successfully, you need to setup your environment properly.
-[See the Appendix for details](day01.html#appendix).
+To be able to run the below code successfully, you need to setup your environment properly. (This is what hw01 and hw02 are about.)
 
 
 ```{r, message=FALSE}
 library(tidyverse)
-pwt90 <- haven::read_dta("../extdata/pwt90.dta")
+pwt90 <- haven::read_dta("~/Data/pwt90.dta")
 ```
 
 ---
@@ -271,30 +271,48 @@ Per-person GDP might be more important.
 
 ```{r, out.width=350}
 usa_per_capita <- usa %>% transmute(year, rgdp_pc = rgdpo / pop)
-ggplot(usa_per_capita) + geom_line(aes(year, rgdp_pc))
+(p <- ggplot(usa_per_capita) + geom_line(aes(year, rgdp_pc)))
+```
+
+---
+
+## On log scale
+
+Plot log(Per-person GDP) to see the trend.
+
+```{r, out.width=350}
+p + scale_y_log10()
 ```
 
 
 ---
 
-## Installation
+## Fit 
 
-Launch RStudio. Make a 
+$$\ln \text{GDP} = \text{const.} + g \times \text{Year}$$
 
-Before starting, you need to install **tidyverse** package and the Penn World Tables dataset. 
+```{r}
+lm(log(rgdp_pc) ~ year, data = usa_per_capita)
+```
 
-- Run this in the console: `install.packages("tidyverse")`
-- Download the Penn World Table data at [www.ggdc.net/pwt](http://www.ggdc.net/pwt) in Stata format or run 
+This means that (approximately)
+$$g = 2.1 \%$$
 
-```{r, eval=FALSE}
-url <- "http://www.rug.nl/ggdc/docs/pwt90.dta"
-dir.create("extdata")
-download.file(url, "extdata/pwt90.dta")
+---
+
+## Constant trend in growth
+
+```{r, out.width=350}
+gdp0 <- usa_per_capita$rgdp_pc[1]
+p + geom_line(aes(x = year, gdp0 * exp(0.021 * (year - min(year)))))
 ```
 
 
 ---
 
-## Setting up 
+## Question
 
-[Go back](day01.html#caveat)
+There seems a constant trend in growth.
+  - In the US, the annual per-capita real GDP growth rate is 2.1% on average
+
+What is the engine of economic growth?

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Guidance</title>
+    <title>Course Mechanics + Introduction</title>
     <meta charset="utf-8">
     <meta name="author" content="Kenji Sato" />
     <meta name="date" content="2017-06-12" />
@@ -12,7 +12,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Guidance
+# Course Mechanics + Introduction
 ## Macroeconomics (2017Q2)
 ### Kenji Sato
 ### 2017-06-12
@@ -72,10 +72,10 @@ or on Slack chatroom (discussed later).
 | Item                 | Weight    | Note                     |
 |:---------------------|:----------|:-------------------------|
 | Attendance           | P/F       | fail if # of absense &gt; 3 |
-| Homework             | 20%       | assigned up to 4 times   |
+| Homework             | 20%       | assigned up to 5 times   |
 | Midterm report       | 40%       | math and data            |
 | Final exam           | 40%       | Aug. 3, open book        |
-| Active participation |           | Bonus up to 10%          |
+| Active participation |           | Bonus up to 20%          |
 
 
 ---
@@ -251,14 +251,13 @@ in this course you will **not** learn
 I will show you all the code I use to draw graphs.  
 Do rerun the code yourself because you can learn how to code only by doing.
 
-To be able to run the below code successfully, you need to setup your environment properly.
-[See the Appendix for details](day01.html#appendix).
+To be able to run the below code successfully, you need to setup your environment properly. (This is what hw01 and hw02 are about.)
 
 
 
 ```r
 library(tidyverse)
-pwt90 &lt;- haven::read_dta("../extdata/pwt90.dta")
+pwt90 &lt;- haven::read_dta("~/Data/pwt90.dta")
 ```
 
 ---
@@ -284,36 +283,70 @@ Per-person GDP might be more important.
 
 ```r
 usa_per_capita &lt;- usa %&gt;% transmute(year, rgdp_pc = rgdpo / pop)
-ggplot(usa_per_capita) + geom_line(aes(year, rgdp_pc))
+(p &lt;- ggplot(usa_per_capita) + geom_line(aes(year, rgdp_pc)))
 ```
 
 &lt;img src="day01_files/figure-html/unnamed-chunk-3-1.png" width="350" style="display: block; margin: auto;" /&gt;
 
-
 ---
 
-## Installation
+## On log scale
 
-Launch RStudio. Make a 
-
-Before starting, you need to install **tidyverse** package and the Penn World Tables dataset. 
-
-- Run this in the console: `install.packages("tidyverse")`
-- Download the Penn World Table data at [www.ggdc.net/pwt](http://www.ggdc.net/pwt) in Stata format or run 
+Plot log(Per-person GDP) to see the trend.
 
 
 ```r
-url &lt;- "http://www.rug.nl/ggdc/docs/pwt90.dta"
-dir.create("extdata")
-download.file(url, "extdata/pwt90.dta")
+p + scale_y_log10()
 ```
+
+&lt;img src="day01_files/figure-html/unnamed-chunk-4-1.png" width="350" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-## Setting up 
+## Fit 
 
-[Go back](day01.html#caveat)
+`$$\ln \text{GDP} = \text{const.} + g \times \text{Year}$$`
+
+
+```r
+lm(log(rgdp_pc) ~ year, data = usa_per_capita)
+```
+
+```
+## 
+## Call:
+## lm(formula = log(rgdp_pc) ~ year, data = usa_per_capita)
+## 
+## Coefficients:
+## (Intercept)         year  
+##     -31.320        0.021
+```
+
+This means that (approximately)
+`$$g = 2.1 \%$$`
+
+---
+
+## Constant trend in growth
+
+
+```r
+gdp0 &lt;- usa_per_capita$rgdp_pc[1]
+p + geom_line(aes(x = year, gdp0 * exp(0.021 * (year - min(year)))))
+```
+
+&lt;img src="day01_files/figure-html/unnamed-chunk-6-1.png" width="350" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Question
+
+There seems a constant trend in growth.
+  - In the US, the annual per-capita real GDP growth rate is 2.1% on average
+
+What is the engine of economic growth?
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
@@ -335,7 +368,7 @@ MathJax.Hub.Config({
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  script.src  = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
