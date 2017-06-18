@@ -355,5 +355,8 @@ The following parameters characterize the Solow model:
 - $g$: technology growth rate
 - $n$: population growth rate
 
+---
+
+background-image: url("images/economy_diagram.jpeg")
 
 
