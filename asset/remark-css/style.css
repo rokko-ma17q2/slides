@@ -10,7 +10,7 @@ h1, h2, h3 {
   font-weight: normal;
 }
 a, a > code {
-  color: rgb(249, 38, 114);
+  color: #6495ED;
   text-decoration: none;
 }
 .footnote {
