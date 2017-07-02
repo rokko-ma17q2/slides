@@ -37,7 +37,7 @@ Visit [kjst.jp/ma17q2hw](kjst.jp/ma17q2hw)
 
 ---
 
-`r section("Romer model")`
+`r section("Departure from the Solow model")`
 
 ---
 
@@ -308,7 +308,7 @@ We get
 
 $$\int_0^\infty e^{- R(t)} c(t) dt + 
   \lim_{t \to \infty} e^{- R(t)} s(t) = 
-  s(0) + \int_0^\infty e^{-\rho t} w(t) dt$$
+  s(0) + \int_0^\infty e^{-R(t)} w(t) dt$$
 
 ---
 
@@ -316,7 +316,7 @@ $$\int_0^\infty e^{- R(t)} c(t) dt +
 
 $$\int_0^\infty e^{- R(t)} c(t) dt + 
   \lim_{t \to \infty} e^{- R(t)} s(t) = 
-  s(0) + \int_0^\infty e^{-\rho t} w(t) dt$$
+  s(0) + \int_0^\infty e^{-R(t)} w(t) dt$$
   
 If it holded that 
 
@@ -332,7 +332,7 @@ $$\lim_{t \to \infty} e^{- R(t)} s(t) \le 0$$
 ## Life-time budget constraint
 
 $$\int_0^\infty e^{- R(t)} c(t) dt = 
-  s(0) + \int_0^\infty e^{-\rho t} w(t) dt$$
+  s(0) + \int_0^\infty e^{-R(t)} w(t) dt$$
 
 This constraint is called **life-time budget constraint**.  
 
@@ -352,7 +352,7 @@ $$\max \int_0^\infty e^{-\rho t} u(c(t))dt$$
 subject to
 
 $$\int_0^\infty e^{- R(t)} c(t) dt = 
-  s(0) + \int_0^\infty e^{-\rho t} w(t) dt$$
+  s(0) + \int_0^\infty e^{-R(t)} w(t) dt$$
 
 ---
 
