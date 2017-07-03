@@ -320,12 +320,12 @@ $$\int_0^\infty e^{- R(t)} c(t) dt +
   
 If it holded that 
 
-$$\lim_{t \to \infty} e^{- R(t)} s(t) > 0$$
+$$\lim_{t \to \infty} e^{- R(t)} s(t) < 0$$
 the consumers can consume more than they earn over their life time.
 
 It might be natural to assume 
 
-$$\lim_{t \to \infty} e^{- R(t)} s(t) \le 0$$
+$$\lim_{t \to \infty} e^{- R(t)} s(t) \ge 0$$
 
 ---
 
