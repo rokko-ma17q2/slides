@@ -344,5 +344,18 @@ knitr::include_graphics("ramsey/ramsey.008.jpeg")
 ```
 
 
+---
+
+## Balanced Growth
+
+In the long-run, the Ramsey model converges to the 
+balanced growth path, in which all variables 
+grow at constat rates.
+
+In Problem Set K, you are ask to obtain the growth rates 
+for 
+
+$$y, k, c, Y, K, C$$
+
 
 
