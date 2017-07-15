@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ramsey Model: Comparative dynamics</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Kenji Sato" />
+    <meta name="date" content="2017-07-13" />
+    <script src="https://use.fontawesome.com/b5f301ecca.js"></script>
+    <link rel="stylesheet" href="../asset/remark-css/style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Ramsey Model: Comparative dynamics
+## Macroeconomics (2017Q2)
+### Kenji Sato
+### 2017-07-13
+
+---
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      Macros: {
+      }
+    }
+  });
+</script>
+
+$$\let\oldhat\hat
+\renewcommand{\hat}[1]{\oldhat{\hspace{0pt} #1}}$$
+
+
+
+&lt;div style="margin-top: -2.3em"&gt;&lt;/div&gt;
+
+## Comparative statics/dynamics
+
+The Ramsey model has the following parameters.
+
+* `\(\delta\)`: depreciation
+* `\(g\)`: technical growth rate
+* `\(n\)`: population growth rate
+* `\(\rho\)`: discount rate
+* `\(\theta\)`: CRRA coefficient (`\(1/\theta\)`: elasticity of intertemporal substitution)
+
+Comparative statics/dynamics exercises are concerned about 
+a change in parameters.
+
+---
+
+## In the long run (comparative statics)
+
+What will happen to the steady state and the steady state growth rates,
+when one of the above parameters changes?
+
+Sample questions
+
+* Will the steady-state _growth rate_ of aggregate consumption, `\(C\)`, be increased or decreased 
+  by an increase in `\(\delta\)`?
+* What policy measure might be effective when (policy maker) you try to increase the level 
+  of output per capita, `\(y = Y / L\)`, in the steady state?
+
+Basically, this is what you have done in Problem Set K. 
+
+---
+
+## On transition (comparative dynamics)
+
+As in the Solow model, the adjustment to the new steady state is not (necessarily) immediate.
+
+You can analyze the transition to the new steady state by the phase diagram.
+
+**For the moment we consider an immediate and permanent change in policy.**
+
+
+---
+
+## Example: Increase in `\(n\)`
+
+`\(\dot{\hat{c}} = 0\)` locus is unchanged because the Euler equation does not have `\(n\)`.
+
+An increase in `\(n\)` brings `\(\dot{\hat{k}} = 0\)` locus down:
+
+`$$\hat{c} = f\left(\hat{k}\right) - (\delta + g + n) \hat{k}$$`
+
+The economy jumps down to the new steady state immediately.
+
+
+---
+
+## Example: Increase in `\(n\)`
+
+&lt;img src="ramsey11/ramsey11.002.jpeg" width="800px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: Increase in `\(\rho\)` 
+
+`\(\dot{\hat{k}} = 0\)` locus is unchanged because the capital accumulation equation does not have `\(\rho\)`.
+
+An increase in `\(\rho\)` shifts `\(\dot{\hat{c}} = 0\)` locus to the left.
+
+
+Recall that 
+
+* `\(\hat{c}\)` can be discontinuous
+* `\(\hat{k}\)` must be continuous
+
+Describe the transition to the new steady state using the following diagram.
+
+
+---
+
+## Example: Increase in `\(\rho\)`
+
+&lt;img src="ramsey11/ramsey11.003.jpeg" width="800px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Comparative statics/dynamics
+
+You need to understand:
+
+* How steady states move;
+* How the economy adjusts to the new steady state.
+
+As we discussed earlier in this course, anticipation for future 
+is an important component of the Ramsey model.  
+
+You can analyze implications of such a policy change as
+
+* Permanent increase in `\(n\)` due to an improvement of adoption policy
+  or immigration policy, which will be enforced at a known point 
+  in future.
+
+---
+
+## Example: Anticipated increase in `\(n\)`
+
+&lt;img src="ramsey11/ramsey11.004.jpeg" width="800px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: Anticipated increase in `\(n\)`
+
+&lt;img src="ramsey11/ramsey11.005.jpeg" width="800px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: Anticipated increase in `\(n\)`
+
+&lt;img src="ramsey11/ramsey11.006.jpeg" width="800px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example: Anticipated increase in `\(n\)`
+
+&lt;img src="ramsey11/ramsey11.007.jpeg" width="800px" style="display: block; margin: auto;" /&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"countIncrementalSlides": false,
+"highlightLines": true,
+"highlightStyle": "github"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
