@@ -311,7 +311,85 @@ A path that starts from somewhere very close to the middle steady state (which i
 Because the agents have three possible `\(\hat k_{t+1}\)`. The path they choose is affected by non-fundamental factors (called **sunspots**).
 
 If they _believe_ the economy experiences boom, they choose the higer `\(\hat k_{t+1}\)` and 
-the economy converges to the higher steady state. Their belief has the power to make it true.
+the economy converges to the higher steady state. Their belief has the power to make it true. 
+
+
+---
+
+class: center, middle
+ # Government 
+
+
+
+---
+
+## Government in the Diamond model
+
+Let's introduce a government in the Diamond OLG model. 
+We consider a government that finances its expense with
+
+- lump-sum tax
+
+We only modify the household behavior.
+
+---
+
+## Household
+
+Young individuals, who are born without financial wealth, supply unit labor and earn wage. They divide their income between consumption, saving, **and tax**. 
+
+When they become old, they simply consume what you can buy with the saving and the interest they will have earned. 
+
+
+---
+
+## Notation
+
+-   Let `\(c_{t}^{Y}\)` be the consumption of the representative consumer in generation 
+    `\(t\)` when they are young, (per capita consumption)
+-   `\(G_t\)` be the lump-sum tax levied on the young (per-capita basis, 
+    _not_ per-effective labor basis)
+-   `\(c_{t+1}^{O}\)`  be the consumption of the representative consumer in generation 
+    `\(t\)` when they are old.
+
+---
+    
+## Household optimization 
+
+`$$\begin{aligned}
+&amp;\max_{c_{t}^{Y},c_{t+1}^{O},s_{t}}
+  \frac{\left(c_{t}^{Y}\right)^{1-\theta}}{1-\theta}
+  +
+  \frac{1}{1+\rho}\frac{\left(c_{t+1}^{O}\right)^{1-\theta}}{1-\theta}\\
+&amp;\text{subject to }\\
+&amp;\qquad c_{t}^{Y}+s_{t}+G_t=w_{t},\\
+&amp;\qquad c_{t+1}^{O}=(1+r_{t+1})s_{t}.
+\end{aligned}$$`
+
+---
+
+## Solution
+
+Assume 
+
+`$$\theta = 1, \quad \text{and} \quad F(K, AL) = K^\alpha (AL)^{1-\alpha}$$`
+
+According to the textbook, the equilibrium dynamics is given by
+
+`$$\hat{k}_{t+1}=\frac{1}{(1+g)(1+n)(2+\rho)}
+\left[(1-\alpha) \hat{k}_{t}^{\alpha} - \hat G_t\right],$$`
+
+where `\(\hat G_t = G_t / A_t\)`. (See Problem Set O)
+
+---
+
+## Implication
+
+Unlike the Ramsey model, anticipation about future stream of the government
+purchases **does not** affect the individual behavior.
+
+This is because an individual's consumption in their old age is solely 
+determined by the tax in the period when they are young.
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
